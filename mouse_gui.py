@@ -3,7 +3,7 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 from face_controller import FaceController
 import keyboard
-import time
+from css import Style  # Renamed from config.py to css.py
 
 DEFAULT_PARAMS = {
     'EMA_ALPHA': 0.15,
@@ -22,7 +22,7 @@ DEFAULT_PARAMS = {
 }
 
 class MouseTab(ttk.Frame):
-    def __init__(self, master):  # Add second parameter
+    def __init__(self, master):
         super().__init__(master)
         self.params = DEFAULT_PARAMS.copy()
         self.face_controller = FaceController(self.params)
@@ -35,15 +35,6 @@ class MouseTab(ttk.Frame):
         # Header
         header = ttk.Label(self, text="Facial Mouse Control", style='Header.TLabel')
         header.pack(pady=(10, 20), anchor=tk.CENTER)
-
-        # Status Label
-        self.status_label = ttk.Label(
-            self,
-            text="Status: Active",
-            foreground="green",
-            font=('Helvetica', 10)
-        )
-        self.status_label.pack(pady=5)
 
         # Parameters Frame
         params_frame = ttk.Frame(self, style='Card.TFrame')
@@ -68,9 +59,10 @@ class MouseTab(ttk.Frame):
         for row, (label_text, param) in enumerate(parameters):
             self._create_input(params_frame, label_text, param, row)
 
+        # Control Buttons
         btn_frame = ttk.Frame(self, style='Card.TFrame')
         btn_frame.pack(pady=10, padx=20, fill=tk.X)
-        
+
         self.save_btn = ttk.Button(
             btn_frame, 
             text="Save Settings", 
@@ -79,14 +71,6 @@ class MouseTab(ttk.Frame):
         )
         self.save_btn.pack(side=tk.LEFT, padx=5, pady=5)
 
-        self.recalibrate_btn = ttk.Button(
-            btn_frame,
-            text="Recalibrate Face",
-            command=self.recalibrate_face,
-            style='Secondary.TButton'
-        )
-        self.recalibrate_btn.pack(side=tk.LEFT, padx=5, pady=5)
-
         self.toggle_btn = ttk.Button(
             btn_frame, 
             text="Pause (Ctrl+Caps Lock)", 
@@ -94,16 +78,7 @@ class MouseTab(ttk.Frame):
             style='Secondary.TButton'
         )
         self.toggle_btn.pack(side=tk.RIGHT, padx=5, pady=5)
-    def recalibrate_face(self):
-        """Trigger face recalibration"""
-        self.face_controller.trigger_recalibration()
-        self.status_label.config(text="Recalibrating... Face the camera directly", foreground="orange")
-        self.after(3000, lambda: self.status_label.config(
-            text="Status: Active", 
-            foreground="green" if not self.face_controller.paused else "gray"
-        ))
-        
-            
+
     def _create_input(self, parent, label_text, param, row):
         frame = ttk.Frame(parent, style='Input.TFrame')
         frame.grid(row=row, column=0, sticky="ew", pady=3)
