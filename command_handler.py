@@ -13,6 +13,9 @@ import os
 import pyttsx3 
 import pyperclip
 import threading
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class CommandHandler:
     PROMPT_TEMPLATE = """
@@ -182,7 +185,7 @@ class CommandHandler:
         self.conversation_history = []
         
         # Initialize Julep client
-        self.client = Julep(api_key="eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDk5OTk1MjksImlhdCI6MTc0NDgxNTUyOSwic3ViIjoiNzQyY2MyZjctMjI2Yy01N2ViLWI5N2QtMDcyNzY3ZjgxYzA1In0.zbLU2H27YbMD4wzCBW5Gi_pIeUW4RakNtrKFgRUlvG3JJwhDC6bu7BPX3eRFqw3jA2joEQaLxz0qckmDB2kRGQ")
+        self.client = Julep(api_key=os.getenv("JULEP_API_KEY"))
         
         # Create or reuse the agent
         self.agent = self.client.agents.create(
