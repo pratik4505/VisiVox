@@ -4,6 +4,7 @@ import tkinter as tk
 from tkinter import ttk
 from voice_gui import VoiceTab
 from mouse_gui import MouseTab
+from instruction_tab import InstructionsTab  # New import
 from css import Style
 from config import Config
 import os
@@ -40,6 +41,10 @@ class MainApplication(tk.Tk):
         # Add mouse tab
         self.mouse_tab = MouseTab(self.notebook)
         self.notebook.add(self.mouse_tab, text=" Mouse Control ")
+        
+        # Add instructions tab
+        self.instructions_tab = InstructionsTab(self.notebook)
+        self.notebook.add(self.instructions_tab, text=" Instructions ")
         
         self.notebook.pack(expand=1, fill="both")
         self.notebook.select(0)  # Set voice tab as default
