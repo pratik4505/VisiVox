@@ -70,6 +70,10 @@ Millions with mobility impairments (ALS, paralysis, RSI) struggle with tradition
    - **Voice Tab:** Say “arise” to activate, then speak commands.
    - **Mouse Tab:** Calibrate and use facial gestures to control the cursor.
 
+## Built exe file:
+
+<a href="https://drive.google.com/file/d/1PuLZ27Kegq4SD1PgZBKN520Y1cGrB5eX/view?usp=sharing">Download exe file</a>
+
 ## Contributors:
 
 **Team Name:** CodeTasctic4
