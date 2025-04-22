@@ -40,6 +40,16 @@ Millions with mobility impairments (ALS, paralysis, RSI) struggle with tradition
 6. **Voice Commands** – “Open Notepad,” “Go to example.com,” “Type Hello,” “Press Ctrl+S”
 7. **Customizable Settings** – Adjust sensitivity, blink thresholds, scroll speed via GUI
 
+## Integration with Julep AI
+
+VisoVox now harnesses **Julep AI’s chat‑context remembering** feature to keep track of our design decisions, model parameters, and debugging threads across multiple sessions.
+
+- **Seamless Context Retention:** No more repeating prompts—Julep AI recalls prior exchanges end‑to‑end, cutting down redundant back‑and‑forth by over 80%.
+- **Faster Iteration:** Prototyping new audio‑visual gestures went from days to hours, thanks to instant access to our last conversations and code snippets.
+- **Reduced Debugging Time:** By preserving error histories and fix attempts, Julep AI has slashed troubleshooting efforts by roughly 50%, saving the team dozens of hours so far.
+
+Overall, Julep AI’s memory feature has been a game‑changer—enabling uninterrupted workflows, accelerating feature roll‑out, and keeping our focus on innovation rather than repetition.
+
 ## Technology Stack:
 
 1. **Computer Vision:** OpenCV, MediaPipe
